@@ -40,10 +40,11 @@
   flex-wrap: wrap;
   padding: 10px;
   justify-content: center;
-  ;
+  align-items: center;
 }
 .book-card{
   width: 300px;
+  height: 350px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -51,6 +52,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   transition: transform 0.2s;
+  cursor: pointer;
 }
 .book-card:hover{
   transform: scale(0.98);

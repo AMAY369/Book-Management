@@ -1,9 +1,8 @@
 import React from 'react'
-import { books } from '../utils/bookData.js'
 import Book from './Book'
 import './styles/style.css';
 
-function BookList() {
+function BookList({books}) {
   return (
     <div className='bookList'>
       {books.map((book)=>{

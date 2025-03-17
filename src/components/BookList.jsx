@@ -1,13 +1,14 @@
 import React from 'react'
 import { books } from '../utils/bookData.js'
 import Book from './Book'
+import './styles/style.css';
 
 function BookList() {
   return (
-    <div>
+    <div className='bookList'>
       {books.map((book)=>{
         return (
-          <Book book ={book}/>
+          <Book key={book.id} book ={book}/>
         )
       })}
     </div>

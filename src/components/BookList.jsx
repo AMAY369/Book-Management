@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Book from './Book'
 import './styles/style.css';
 import { useState } from 'react';
-import {books} from '../utils/bookData.js'
+// import {books} from '../utils/bookData.js'
 import { Link } from 'react-router-dom';
 
 function BookList() {
 
+  const [bookData, setBookData] = useState([])
   const [searchedInput, setSearchedInput] = useState('');
-  const [searchedBooks, setSearchedBooks] = useState(books)
+  const [searchedBooks, setSearchedBooks] = useState([])
   console.log(searchedInput);
 
+  useEffect(()=>{
+    fetchData()
+  },[])
+
+  const fetchData= async()=>{
+    const response = await fetch('https://www.freetestapi.com/api/v1/books')
+    const data = await response.json();
+    setBookData(data);
+    setSearchedBooks(data)
+  }
+
   const handleSearch = () => {
-    const searchedBook = books.filter((book) => book.title.toLowerCase().includes(searchedInput.toLowerCase()));
+    const searchedBook = bookData.filter((book) => book.title.toLowerCase().includes(searchedInput.toLowerCase()));
     setSearchedBooks(searchedBook);
   }
 
